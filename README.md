@@ -1,41 +1,50 @@
-# Pharos-Network Script
+💠 سكريبت شبكة Pharos
+🎯 الهدف
+تسجيل الدخول تلقائيًا، المطالبة بصنبور (faucet)، تنفيذ تسجيل الدخول اليومي (check-in)، إرسال ETH، والتحقق من المهام لعدة محافظ على شبكة Pharos testnet.
 
-## Mục đích
-Tự động login, nhận faucet, checkin, gửi ETH và xác minh task cho nhiều ví trên Pharos Network testnet.
+🛠️ دليل الاستخدام
+1. التثبيت
+قم بتثبيت Node.js بإصدار 16 أو أحدث
 
-## Hướng dẫn sử dụng 
+ثم ثبّت الحزم المطلوبة:
 
-### 1. Cài đặt
-- Cài Node.js >= 16
-- Cài các package cần thiết:
-  ```
-  npm install
-  npm install http-proxy-agent https-proxy-agent
-  ```
+bash
+Salin
+Edit
+npm install
+npm install http-proxy-agent https-proxy-agent
+2. إعداد ملفات التكوين
+key.txt: كل سطر يحتوي على مفتاح خاص (Private Key)، بدون أسطر فارغة.
 
-### 2. Chuẩn bị file cấu hình
-- **key.txt**: Mỗi dòng 1 private key (không có dòng trống).
-- **proxy.txt** (tuỳ chọn): Mỗi dòng 1 proxy dạng `http://user:pass@host:port` hoặc `http://host:port`. Nếu để trống sẽ không dùng proxy.
+proxy.txt (اختياري): كل سطر يمثل بروكسي بصيغة:
 
-### 3. Cấu hình script
-- Mở file `pharos.js`, chỉnh các biến ở đầu file:
-  - `ENABLE_FAUCET`: Bật/tắt nhận faucet.
-  - `ENABLE_CHECKIN`: Bật/tắt checkin.
-  - `ENABLE_SEND`: Bật/tắt gửi ETH và verify task.
-  - `SEND_TIMES`: Số lần gửi mỗi ví.
-  - `SEND_AMOUNT`: Số ETH gửi mỗi lần.
-  - `VERIFY_TASK_ID_SEND`: Task ID dùng để verify.
+http://user:pass@host:port أو http://host:port
 
-### 4. Chạy script
-```
+إذا تُرك فارغًا، لن يتم استخدام بروكسي.
+
+3. ضبط الإعدادات في السكريبت
+افتح ملف pharos.js وعدّل المتغيرات في الأعلى:
+
+المتغير	الوظيفة
+ENABLE_FAUCET	تفعيل/تعطيل الحصول على الصنبور (faucet)
+ENABLE_CHECKIN	تفعيل/تعطيل تسجيل الدخول اليومي
+ENABLE_SEND	تفعيل/تعطيل إرسال ETH والتحقق من المهام
+SEND_TIMES	عدد مرات الإرسال لكل محفظة
+SEND_AMOUNT	كمية ETH المرسلة في كل مرة
+VERIFY_TASK_ID_SEND	رقم المهمة للتحقق بعد الإرسال
+
+4. تشغيل السكريبت
+bash
+Salin
+Edit
 node pharos.js
-```
+5. ملاحظات مهمة
+لا تشارك ملفي key.txt و proxy.txt مع أي شخص.
 
-### 5. Lưu ý
-- Không chia sẻ file `key.txt` và `proxy.txt` cho bất kỳ ai.
-- Script sẽ tự động xoay vòng proxy nếu có nhiều proxy.
-- Log sẽ hiển thị màu sắc giúp dễ theo dõi trạng thái.
+السكريبت يدعم التبديل التلقائي للبروكسي إذا تم توفير أكثر من بروكسي.
 
----
+السجل (log) يعرض ألوانًا لتسهيل تتبع الحالة.
 
-Nếu gặp lỗi hoặc cần hỗ trợ, hãy liên hệ người phát triển script. 
+في حال حدوث خطأ أو الحاجة إلى دعم، يُرجى التواصل مع مطور السكريبت.
+
+هل ترغب أيضًا بترجمة الرسائل داخل الكود؟
