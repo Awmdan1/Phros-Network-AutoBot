@@ -72,7 +72,7 @@ async function main() {
       continue;
     }
     // LOGIN
-    const loginUrl = `${LOGIN_URL}?address=${address}&signature=${signature}&invite_code=eTxumDYUuAbqh218`;
+    const loginUrl = `${LOGIN_URL}?address=${address}&signature=${signature}&invite_code=ALkNF1ol98lo6XYY`;
     let logBlock = `[${i + 1}/${privKeys.length}] ${address}:\n`;
     if (useProxy) {
       const proxy = proxies[i % proxies.length];
