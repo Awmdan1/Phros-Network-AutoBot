@@ -3,7 +3,7 @@
 ## Mục đích
 Tự động login, nhận faucet, checkin, gửi ETH và xác minh task cho nhiều ví trên Pharos Network testnet.
 
-## Hướng dẫn sử dụng
+## Hướng dẫn sử dụng 
 
 ### 1. Cài đặt
 - Cài Node.js >= 16
